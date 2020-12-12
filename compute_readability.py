@@ -1,4 +1,12 @@
 import string
+import argparse
+
+parser = argparse.ArgumentParser(description='Compute the grade level of a book')
+parser.add_argument('filename')
+args = parser.parse_args()
+textdoc = open(args.filename)
+textdoc = textdoc.read()
+
 
 def compute_gradelevel(textdoc):
     grade_level= {
@@ -19,8 +27,6 @@ def compute_gradelevel(textdoc):
         14: 'College',
     
         }
-    textdoc = open(textdoc)
-    textdoc = textdoc.read()
     words = get_words(textdoc)
     sentences = get_sentences(textdoc)
     char = get_characters(textdoc)
@@ -59,5 +65,4 @@ def get_sentences(textdoc:str):
             sentence_count.pop(0)
 
     return len(sentence_count)
-    
-print(compute_gradelevel('alice.txt'))
+print(compute_gradelevel(textdoc)) 
