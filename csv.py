@@ -58,11 +58,16 @@ def update_file(csvfile:str,keys:list,csv_content:list):
         file.write(csv)
     
 
-def adding_user(keys:list,csv_content:list,attributes:tuple):
+def add_user(keys:list,csv_content:list,attributes:tuple):
     # takes in a tuple and converts it to a dictionary values in csv_content using keys list as keys 
-
+        
+    first_key = keys[0]
     tempdict = {}
     
+    for char in csv_content:
+        if char[first_key] == attributes[0]:
+            return print('That user already exists.') 
+               
     for i in range(len(attributes)):
         tempdict.update({keys[i]:attributes[i]})
 
