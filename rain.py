@@ -85,7 +85,3 @@ def rainy_year(lines):
             maxyear = char[0]
 
     return f'{maxyear} is the rainiest year at {maxvalue} inches.'
-
-
-lines = form_list('rain.txt')
-print(rainy_year(lines))
